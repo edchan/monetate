@@ -35,7 +35,7 @@ You can view and test each solution by opening the respective `index.html` file 
 
 Want to test it quickly?  
 Just visit:  
-🔗 **[https://edchan.github.io/monetate-solutions/](https://edchan.github.io/monetate-solutions/)**
+🔗 **[https://edchan.github.io/monetate/](https://edchan.github.io/monetate/)**
 
 ---
 
