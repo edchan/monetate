@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add found</title>
+  <style>
+    #q_offering .found {
+      color: #C10000;
+    }
+  </style>
+</head>
+<body>
+
+  <ul id="q_offering">
+    <li>A/B Multivariate Testing</li>
+    <li>Best Practices</li>
+    <li>Development</li>
+    <li>How Tos</li>
+    <li>IT</li>
+    <li>Marketing</li>
+    <li>Success Stories</li>
+  </ul>
+
+  <script>
+    // Get all list items
+    const items = document.querySelectorAll('#q_offering li');
+
+    const findOffering = {
+      "Best_Practices": "1002",
+      "Success_Stories": "1007"
+    };
+
+    // Q6: add class and log value if matched
+    items.forEach(item => {
+      const key = item.innerText.trim().replace(/\s+/g, '_');
+      if (findOffering.hasOwnProperty(key)) {
+        console.log(findOffering[key]);
+        item.classList.add('found');
+      }
+    });
+  </script>
+
+</body>
+</html>

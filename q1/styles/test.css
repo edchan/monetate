@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+}
+
+.logo-container {
+    background-color: #CCCFE5;
+    padding: 20px;
+}
+
+.product-link {
+    display: block;
+    margin-top: 20px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fix code</title>
+</head>
+<body>
+  <p>Check console log.</p>
+
+  <script>
+    // Fix == to =
+    const kenIsThatYou = (str) => {
+      // Fix = to ===
+      if (str === "Ken") {
+        return "Hi Ken. How are you?";
+      }
+      // ’ to "
+      return "You are not Ken";
+    }
+
+    // For testing.
+    console.log(kenIsThatYou("Ken"));
+    console.log(kenIsThatYou("Ryu"));
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Print text in console</title>
+  <style>
+    #q_offering .found {
+      color: #C10000;
+    }
+  </style>
+</head>
+<body>
+  <ul id="q_offering">
+    <li>A/B Multivariate Testing</li>
+    <li>Best Practices</li>
+    <li>Development</li>
+    <li>How Tos</li>
+    <li>IT</li>
+    <li>Marketing</li>
+    <li>Success Stories</li>
+  </ul>
+
+  <script>
+    // Get all list items
+    const items = document.querySelectorAll('#q_offering li');
+
+    // Store texts here
+    const texts = [];
+
+    // Add each item's text to the array
+    items.forEach(item => {
+      texts.push(item.innerText.trim());
+    });
+
+    // Print all texts separated by commas
+    console.log(texts.join(', '));
+  </script>
+</body>
+</html>

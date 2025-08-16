@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Why Errors?</title>
+</head>
+<body>
+  <p>Check console log.</p>
+  <p><span id="name">Staples Universal Stylus: </span><span id="item_number">1</span></p>
+
+  <script>
+    /*
+    Original code:
+    if (document.querySelector("#item_number").length &&
+        window.Analytics.tracking.item.sku) {
+      // do something
+    }
+    */
+
+    /*
+    If the expectation is multiple elements.
+
+    Problem:
+    - Using .length on querySelector will cause an error (querySelector returns a single element, not a list).
+    - Accessing window.Analytics.tracking.item.sku can cause errors if any part is missing.
+
+    Fix:
+    - Use querySelectorAll to get all matching elements.
+    - Check if .length > 0 to see if elements exist.
+    - Use optional chaining (?.) to safely check sku.
+    */
+
+    if (document.querySelectorAll("#item_number").length > 0 && window.Analytics?.tracking?.item?.sku) {
+      // do something
+    }
+
+
+    /*
+    If the expectation is a single element.
+
+    Problem:
+    - using .length on querySelector will cause error.
+    - accessing window.Analytics.tracking.item.sku can cause errors if any part is missing.
+
+    Fix:
+    - remove .length
+    - use optional chaining (?.) to safely check sku.
+    */
+    if (document.querySelector("#item_number") && window.Analytics?.tracking?.item?.sku) {
+      // do something
+    }
+
+    // For testing.
+    // Simulate window.Analytics.tracking.item.name
+    window.Analytics = {
+      tracking: {
+        item: {
+          sku: '579499'
+        }
+      }
+    };
+    if (document.querySelector("#item_number") && window.Analytics?.tracking?.item?.sku) {
+      console.log('can do something here');
+    }
+
+    if (document.querySelector("#item_number") && window.Analytics?.tracking?.item?.sku) {
+      console.log('can do something here');
+    }
+  </script>
+</body>
+</html>

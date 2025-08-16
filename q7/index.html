@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Page Example</title>
+  <style>
+    .product-info-ux2dot0__sub_info {
+      font-size: 14px;
+      color: #555;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Example code from https://www.staples.com/staples-universal-stylus-pencil-design-51183/product_579499 -->
+  <div id="product_Details" class="product-info-ux2dot0__item_models">
+    <span id="item_number" class="product-info-ux2dot0__sub_info">Item #: 579499</span>
+    <span aria-hidden="true" class="product-info-ux2dot0__sub_info"> | </span>
+    <span id="manufacturer_number" class="product-info-ux2dot0__sub_info">Model #: 51183</span>
+  </div>
+
+  <script>
+    // Simulate window.Analytics.tracking.item.name
+    window.Analytics = {
+      tracking: {
+        item: {
+          name: 'Staples Universal Stylus, Pencil Design (51183)'
+        }
+      }
+    };
+
+    const productName = window.Analytics?.tracking?.item?.name;
+
+    const regex = /Staples/i; // Product to match
+    if (productName && regex.test(productName)) {
+      // Find the manufacturer number element
+      const manufacturerElement = document.getElementById('manufacturer_number');
+      if (manufacturerElement) {
+        // Create the separator span
+        const separator = document.createElement('span');
+        separator.setAttribute('aria-hidden', 'true');
+        separator.className = 'product-info-ux2dot0__sub_info';
+        separator.textContent = ' | ';
+
+        // Create the "Staples Brand" span
+        const brandSpan = document.createElement('span');
+        brandSpan.className = 'product-info-ux2dot0__sub_info';
+        brandSpan.textContent = 'Staples Brand';
+
+        // Insert the elements after manufacturerElement
+        manufacturerElement.insertAdjacentElement('afterend', brandSpan);
+        manufacturerElement.insertAdjacentElement('afterend', separator);
+      }
+    }
+  </script>
+
+</body>
+</html>

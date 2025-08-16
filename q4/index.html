@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Responsive Boxes</title>
+  <style>
+    /* Initial CSS */
+    .parent > div {
+      background: #CCCFE5;
+      border: 1px solid #000;
+    }
+
+    /* Parent base styles */
+    .parent {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Make borders part of width */
+    .child {
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* From 0 to 400px */
+    .child {
+      width: 100%;
+    }
+
+    /* From 401px to 800px */
+    @media (min-width: 401px) and (max-width: 800px) {
+      .child {
+        width: 50%;
+      }
+    }
+
+    /* From 801px to 1200px */
+    @media (min-width: 801px) and (max-width: 1200px) {
+      .child {
+        width: 33.33%;
+      }
+      .child:nth-child(4) {
+        width: 100%;
+      }
+    }
+
+    /* From 1201px and above */
+    @media (min-width: 1201px) {
+      .child {
+        width: 25%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child box1">Box 1</div>
+    <div class="child box2">Box 2</div>
+    <div class="child box3">Box 3</div>
+    <div class="child box3">Box 4</div>
+  </div>
+</body>
+</html>

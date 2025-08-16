@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Regular Expressions</title>
+</head>
+<body>
+  <p>Check console log.</p>
+
+  <script>
+    const pattern = /^\/(sitespect-blog(\?abc|\/\d+)?|library-item)$/;
+
+    console.log(pattern.test("/sitespect-blog"));       // true
+    console.log(pattern.test("/sitespect-blog?abc"));   // true
+    console.log(pattern.test("/sitespect-blog/1"));     // true
+    console.log(pattern.test("/sitespect-blog/2"));     // true
+    console.log(pattern.test("/sitespect-blog/3"));     // true
+    console.log(pattern.test("/library-item"));         // true
+
+    console.log(pattern.test("/sitespect-blog?a"));     // false
+    console.log(pattern.test("/sitespect-blog?xyz"));   // false
+    console.log(pattern.test("/library-item?abc"));     // false
+    console.log(pattern.test("/library-item/1"));       // false
+  </script>
+</body>
+</html>
